@@ -6,16 +6,17 @@
 /*   By: jboon <jboon@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/22 16:34:55 by jboon         #+#    #+#                 */
-/*   Updated: 2025/06/22 16:37:48 by jboon         ########   odam.nl         */
+/*   Updated: 2025/06/22 23:41:32 by jboon         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "utils.h"
+#include "rush02.h"
 
-static char	*construct_line(char *line, char *buffer, size_t cur_len, size_t buf_len)
+static char	*construct_line(char *line, char *buffer, size_t cur_len,
+	size_t buf_len)
 {
 	char	*new_line;
 
@@ -29,7 +30,8 @@ static char	*construct_line(char *line, char *buffer, size_t cur_len, size_t buf
 	return (new_line);
 }
 
-static bool	append_newline(char **line, char *buffer, size_t *line_len, size_t bytes)
+static bool	append_newline(char **line, char *buffer, size_t *line_len,
+	size_t bytes)
 {
 	char	*ptr;
 	size_t	len;

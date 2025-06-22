@@ -6,7 +6,7 @@
 /*   By: jboon <jboon@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/22 17:28:15 by jboon         #+#    #+#                 */
-/*   Updated: 2025/06/22 22:35:31 by jboon         ########   odam.nl         */
+/*   Updated: 2025/06/22 23:43:19 by jboon         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "list.h"
-#include "utils.h"
+#include "rush02.h"
 
 static int	parse_number_entry(char *line, t_node **dst)
 {
@@ -84,11 +84,13 @@ bool	handle_dictionary(const char *filename, t_node **dict)
 	return (*dict != NULL);
 }
 
-bool	validate_input(int argc, char *argv[], const char **filename, const char **num_str)
+bool	validate_input(int argc, char *argv[], const char **filename,
+	const char **num_str)
 {
 	if (argc == 1)
 	{
-		ft_puterr("Missing arguments: ./", argv[0], " <number> [dictionary file]\n");
+		ft_puterr("Missing arguments: ./", argv[0],
+			" <number> [dictionary file]\n");
 		return (false);
 	}
 	else if (argc == 2)
@@ -97,7 +99,8 @@ bool	validate_input(int argc, char *argv[], const char **filename, const char **
 		*filename = argv[2];
 	else
 	{
-		ft_puterr("Too many arguments: ./", argv[0], " <number> [dictionary file]\n");
+		ft_puterr("Too many arguments: ./", argv[0],
+			" <number> [dictionary file]\n");
 		return (false);
 	}
 	if (*argv[1] == '\0' || !ft_str_isdigit(*(argv + 1)))

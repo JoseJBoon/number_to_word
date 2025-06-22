@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ftput.c                                            :+:    :+:            */
+/*   str_utils_extra.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboon <jboon@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/06/22 22:20:38 by jboon         #+#    #+#                 */
-/*   Updated: 2025/06/22 23:33:36 by jboon         ########   odam.nl         */
+/*   Created: 2025/06/22 23:29:17 by jboon         #+#    #+#                 */
+/*   Updated: 2025/06/22 23:30:43 by jboon         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "rush02.h"
+#include <stdbool.h>
+#include <stddef.h>
 
-void	ft_putchar(char c, int fd)
+size_t	ft_strlen(const char *s)
 {
-	write (fd, &c, 1);
+	const char	*end;
+
+	end = s;
+	while (*end)
+		++end;
+	return (end - s);
 }
 
-void	ft_putstr(const char *s, int fd)
+char	*ft_skipchar(const char *str, char c)
 {
-	write(fd, s, ft_strlen(s));
+	while (*str && *str == c)
+		++str;
+	return ((char *)str);
 }
 
-void	ft_puterr(const char *pre, const char *mid, const char *post)
+bool	ft_str_isdigit(const char *s)
 {
-	ft_putstr(pre, STDERR_FILENO);
-	if (mid != NULL)
-		ft_putstr(mid, STDERR_FILENO);
-	if (post != NULL)
-		ft_putstr(post, STDERR_FILENO);
+	while (*s)
+	{
+		if (*s < '0' || *s > '9')
+			return (false);
+		++s;
+	}
+	return (true);
 }

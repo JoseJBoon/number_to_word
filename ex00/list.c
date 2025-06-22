@@ -6,7 +6,7 @@
 /*   By: jboon <jboon@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/22 12:50:53 by jboon         #+#    #+#                 */
-/*   Updated: 2025/06/22 16:01:15 by jboon         ########   odam.nl         */
+/*   Updated: 2025/06/22 23:42:02 by jboon         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_node	*ft_lstnew(char *key, char *value)
 	node->next = NULL;
 	return (node);
 }
+
 t_node	*ft_lstadd_back(t_node *lst, t_node *node)
 {
 	t_node	*curr;
@@ -37,7 +38,8 @@ t_node	*ft_lstadd_back(t_node *lst, t_node *node)
 	curr->next = node;
 	return (lst);
 }
-t_node	*ft_lstfind(t_node *lst, const char *key, int (*cmp)(const char *, const char *))
+
+t_node	*ft_lstfind(t_node *lst, const char *key, t_cmp cmp)
 {
 	while (lst)
 	{
@@ -47,6 +49,7 @@ t_node	*ft_lstfind(t_node *lst, const char *key, int (*cmp)(const char *, const 
 	}
 	return (lst);
 }
+
 void	ft_lstclear(t_node *lst)
 {
 	t_node	*tmp;

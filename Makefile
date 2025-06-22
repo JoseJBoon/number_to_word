@@ -2,7 +2,8 @@ NAME	:=	rush02
 CC		:=	cc
 CFLAGS	:=	-Wall -Wextra -Werror -g3
 BIN		:=	bin
-SRCS	:=	main.c list.c utils.c getline.c parse.c ftput.c
+SRCS	:=	dict_utils.c ftput.c getline.c list.c main.c numtoword.c\
+			numtoword_utils.c parse.c str_utils.c str_utils_extra.c
 OBJS	:=	$(SRCS:%.c=$(BIN)/%.o)
 
 all: $(NAME)
