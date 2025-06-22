@@ -1,0 +1,5 @@
+.vscode
+**/bin
+rush02
+a.out
+*.o
